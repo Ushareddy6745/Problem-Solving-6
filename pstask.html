@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function processAndSum(arr) {
+    let merged = [];
+    for (let i = 0; i < arr.length; i++) {
+        let subArray = arr[i];
+        for (let j = 0; j < subArray.length; j++) {
+            merged[merged.length] = subArray[j];
+        }
+    }
+
+    let unique = [];
+    for (let k = 0; k < merged.length; k++) {
+        let current = merged[k];
+        let isDuplicate = false;
+        for (let m = 0; m < unique.length; m++) {
+            if (unique[m] === current) {
+                isDuplicate = true;
+                break;
+            }
+        }
+        if (!isDuplicate) {
+            unique[unique.length] = current;
+        }
+    }
+
+    
+    let sum = 0;
+    for (let n = 0; n < unique.length; n++) {
+        sum += unique[n];
+    }
+
+    return sum;
+}
+    </script>
+</body>
+</html>
